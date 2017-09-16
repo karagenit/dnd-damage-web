@@ -10,9 +10,6 @@
     <input type="number" step="0.5" name="damage" id="damage" placeholder="Damage">
     <button type="button" onclick="calculate()">Calculate</button>
     <br>
-    <pre id="output">
-    </pre>
-    <br>
     <canvas id="chart" width="500" height="500"></canvas>
   </body>
 </html>
@@ -44,8 +41,6 @@
         y: damage
       };
     }
-
-    document.getElementById('output').innerHTML = out;
 
     var color = randomColor();
 
