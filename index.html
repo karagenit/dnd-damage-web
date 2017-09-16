@@ -13,13 +13,16 @@
     <pre id="output">
     </pre>
     <br>
-    <canvas id="chart" width="500px" height="500px"></canvas>
+    <canvas id="chart" width="500" height="500"></canvas>
   </body>
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
 
 <script>
+
+  var dataset = [];
+
   function calculate() {
     var hit = parseFloat(document.getElementById('tohit').value);
     var dmg = parseFloat(document.getElementById('damage').value);
@@ -47,14 +50,17 @@
   }
 
   function graphData(data) {
+
+    dataset.push({
+      label: 'Dataset',
+      data: data
+    });
+
     var ctx = document.getElementById("chart").getContext('2d');
     var scatterChart = new Chart(ctx, {
       type: 'scatter',
       data: {
-        datasets: [{
-          label: 'Scatter Dataset',
-          data: data
-        }]
+        datasets: dataset
       },
       options: {
         scales: {
