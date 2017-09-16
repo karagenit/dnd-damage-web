@@ -17,9 +17,22 @@
 
 <script>
   function calculate() {
-    var hit = document.getElementById('tohit').value;
-    var dmg = document.getElementById('damage').value;
-    console.log('hi');
-    document.getElementById('output').innerHTML = hit + " & " + dmg;
+    var hit = parseFloat(document.getElementById('tohit').value);
+    var dmg = parseFloat(document.getElementById('damage').value);
+    var out = "";
+
+    for(ac = 8; ac < 26; ac++) {
+      var damage = 0;
+      for(roll = 2; roll < 20; roll++) {
+        if(roll + hit >= ac) {
+          damage += dmg;
+        }
+      }
+      damage += 2 * dmg;
+      damage /= 20;
+      out = out + "AC " + ac + " Damage: " + damage + "\n";
+    }
+
+    document.getElementById('output').innerHTML = out;
   }
 </script>
