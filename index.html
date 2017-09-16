@@ -46,16 +46,16 @@
     }
 
     document.getElementById('output').innerHTML = out;
-    graphData(data);
-  }
-
-  function graphData(data) {
 
     dataset.push({
-      label: 'Dataset',
+      label: "Hit " + hit + "/Damage " + dmg,
       data: data
     });
 
+    updateGraph();
+  }
+
+  function updateGraph() {
     var ctx = document.getElementById("chart").getContext('2d');
     var scatterChart = new Chart(ctx, {
       type: 'scatter',
