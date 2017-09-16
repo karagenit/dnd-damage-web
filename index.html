@@ -47,9 +47,12 @@
 
     document.getElementById('output').innerHTML = out;
 
+    var color = randomColor();
+
     dataset.push({
       label: "Hit " + hit + "/Damage " + dmg,
-      data: data
+      data: data,
+      pointBorderColor: color
     });
 
     updateGraph();
@@ -71,5 +74,13 @@
         }
       }
     });
+  }
+
+  function randomColor() {
+    var num = Math.round(0xffffff * Math.random());
+    var r = num >> 16;
+    var g = num >> 8 & 255;
+    var b = num & 255;
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
   }
 </script>
