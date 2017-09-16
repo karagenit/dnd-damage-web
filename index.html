@@ -12,14 +12,19 @@
     <br>
     <pre id="output">
     </pre>
+    <br>
+    <canvas id="chart" width="500px" height="500px"></canvas>
   </body>
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
 
 <script>
   function calculate() {
     var hit = parseFloat(document.getElementById('tohit').value);
     var dmg = parseFloat(document.getElementById('damage').value);
     var out = "";
+    var data = [];
 
     for(ac = 8; ac < 26; ac++) {
       var damage = 0;
@@ -31,8 +36,13 @@
       damage += 2 * dmg;
       damage /= 20;
       out = out + "AC " + ac + " Damage: " + damage + "\n";
+      data[ac-8] = damage;
     }
 
     document.getElementById('output').innerHTML = out;
+    graphData(data);
+  }
+
+  function graphData(data) {
   }
 </script>
