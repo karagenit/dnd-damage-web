@@ -64,6 +64,11 @@ function pushDataset(name, rawdata) {
     });
 }
 
+function clearDatasets() {
+    dataset = [];
+    updateGraph();
+}
+
 function updateGraph() {
     scatterChart.data.datasets = dataset;
     scatterChart.update();
