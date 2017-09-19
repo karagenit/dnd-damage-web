@@ -11,7 +11,21 @@ var scatterChart = new Chart(ctx, {
         scales: {
             xAxes: [{
                 type: 'linear',
-                position: 'bottom'
+                position: 'bottom',
+                ticks: {
+                    min: 4,
+                    max: 26,
+                    stepSize: 1
+                }
+            }],
+            yAxes: [{
+                type: 'linear',
+                position: 'left',
+                ticks: {
+                    min: 0,
+                    suggestedMax: 20,
+                    stepSize: 1
+                }
             }]
         }
     }
