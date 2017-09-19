@@ -42,6 +42,16 @@ function createDataset() {
     var dmg = parseFloat(document.getElementById('damage').value);
     var name = document.getElementById('name').value || "Hit " + hit + " Damage " + dmg;
 
+    if(isNaN(hit)) {
+        alert('To Hit Cannot Be Left Blank!');
+        return;
+    }
+
+    if(isNaN(dmg)) {
+        alert('Damage Cannot Be Left Blank!');
+        return;
+    }
+
     //add data to graph
     pushDataset(name, calculateDataset(hit, dmg));
     updateGraph();
