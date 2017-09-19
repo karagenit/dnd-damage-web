@@ -19,9 +19,16 @@ var scatterChart = new Chart(ctx, {
 
 var dataset = [];
 
-function calculate() {
+function createDataset() {
     var hit = parseFloat(document.getElementById('tohit').value);
     var dmg = parseFloat(document.getElementById('damage').value);
+    var name = "Hit " + hit + " Damage " + dmg;
+    pushDataset(name, calculateDataset(hit, dmg));
+    updateGraph();
+}
+    
+
+function calculateDataset(hit, dmg) {
     var data = [];
 
     for(ac = AC_MIN; ac <= AC_MAX; ac++) {
@@ -33,22 +40,28 @@ function calculate() {
         }
         damage += 2 * dmg;
         damage /= 20;
-        data[ac-AC_MIN] = {
-            x: ac,
-            y: damage
-        };
+        data[ac] = damage;
     }
 
+    return data;
+}
+function pushDataset(name, rawdata) {
     var color = randomColor();
+    var data = [];
+
+    rawdata.forEach(function makeSet(damage, ac) {
+        data.push({
+            x: ac,
+            y: damage
+        });
+    });
 
     dataset.push({
-        label: "Hit " + hit + "/Damage " + dmg,
+        label: name,
         data: data,
         borderColor: color,
         pointBorderColor: color
     });
-
-    updateGraph();
 }
 
 function updateGraph() {
@@ -63,4 +76,3 @@ function randomColor() {
     var b = num & 255;
     return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 }
-
