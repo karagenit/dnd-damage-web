@@ -1,3 +1,7 @@
+/**
+ * This file contains the main Chart.js initialization code.
+ */
+
 var ctx = document.getElementById("chart").getContext('2d');
 var scatterChart = new Chart(ctx, {
     type: 'scatter',
@@ -17,7 +21,7 @@ var scatterChart = new Chart(ctx, {
                     labelString: 'Monster AC'
                 },
                 ticks: {
-                    min: 4, //TODO use constants
+                    min: 4,
                     max: 26,
                     stepSize: 1
                 }

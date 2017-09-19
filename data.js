@@ -3,6 +3,9 @@ const AC_MAX = 25;
 
 var dataset = [];
 
+/**
+ * Add a new dataset by reading user text input fields
+ */
 function createDataset() {
     //get attributes
     var hitBonus = parseFloat(document.getElementById('tohit').value);
@@ -28,7 +31,9 @@ function createDataset() {
     document.getElementById('damage').value = '';
 }
 
-
+/**
+ * Computes average damage at different ACs
+ */
 function calculateDataset(hitBonus, avgDamage) {
     var data = [];
 
@@ -42,6 +47,10 @@ function calculateDataset(hitBonus, avgDamage) {
 
     return data;
 }
+
+/**
+ * Adds the calculated data to the global dataset array
+ */
 function pushDataset(name, rawdata) {
     var color = randomColor();
     var data = [];
@@ -61,16 +70,25 @@ function pushDataset(name, rawdata) {
     });
 }
 
+/**
+ * Wipes the global dataset array
+ */
 function clearDatasets() {
     dataset = [];
     updateGraph();
 }
 
+/**
+ * Updates the rendered graph
+ */
 function updateGraph() {
     scatterChart.data.datasets = dataset;
     scatterChart.update();
 }
 
+/**
+ * Returns a new random color
+ */
 function randomColor() {
     var num = Math.round(0xffffff * Math.random());
     var r = num >> 16;
