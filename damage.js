@@ -37,11 +37,18 @@ var scatterChart = new Chart(ctx, {
 var dataset = [];
 
 function createDataset() {
+    //get attributes
     var hit = parseFloat(document.getElementById('tohit').value);
     var dmg = parseFloat(document.getElementById('damage').value);
     var name = document.getElementById('name').value || "Hit " + hit + " Damage " + dmg;
+
+    //add data to graph
     pushDataset(name, calculateDataset(hit, dmg));
     updateGraph();
+
+    //clear input boxes
+    document.getElementById('tohit').value = '';
+    document.getElementById('damage').value = '';
 }
     
 
