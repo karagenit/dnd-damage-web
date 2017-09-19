@@ -15,6 +15,10 @@ var scatterChart = new Chart(ctx, {
             xAxes: [{
                 type: 'linear',
                 position: 'bottom',
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Monster AC'
+                },
                 ticks: {
                     min: 4,
                     max: 26,
@@ -24,6 +28,10 @@ var scatterChart = new Chart(ctx, {
             yAxes: [{
                 type: 'linear',
                 position: 'left',
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Average Damage'
+                },
                 ticks: {
                     min: 0,
                     suggestedMax: 20,
@@ -60,7 +68,7 @@ function createDataset() {
     document.getElementById('tohit').value = '';
     document.getElementById('damage').value = '';
 }
-    
+
 
 function calculateDataset(hit, dmg) {
     var data = [];
