@@ -74,15 +74,12 @@ function calculateDataset(hit, dmg) {
     var data = [];
 
     for(ac = AC_MIN; ac <= AC_MAX; ac++) {
-        var damage = 0;
-        for(roll = 2; roll < 20; roll++) {
-            if(roll + hit >= ac) {
-                damage += dmg;
-            }
-        }
+        var hits = Math.min(Math.max(20 + hit - ac, 0), 18);
+        var damage = dmg * hits;
         damage += 2 * dmg;
         damage /= 20;
         data[ac] = damage;
+        console.log(hits);
     }
 
     return data;
