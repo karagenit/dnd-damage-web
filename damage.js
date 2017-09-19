@@ -8,6 +8,9 @@ var scatterChart = new Chart(ctx, {
         datasets: []
     },
     options: {
+        legend: {
+            position: 'bottom'
+        },
         scales: {
             xAxes: [{
                 type: 'linear',
