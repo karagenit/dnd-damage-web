@@ -22,7 +22,7 @@ var dataset = [];
 function createDataset() {
     var hit = parseFloat(document.getElementById('tohit').value);
     var dmg = parseFloat(document.getElementById('damage').value);
-    var name = "Hit " + hit + " Damage " + dmg;
+    var name = document.getElementById('name').value || "Hit " + hit + " Damage " + dmg;
     pushDataset(name, calculateDataset(hit, dmg));
     updateGraph();
 }
