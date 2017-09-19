@@ -46,22 +46,22 @@ var dataset = [];
 
 function createDataset() {
     //get attributes
-    var hit = parseFloat(document.getElementById('tohit').value);
-    var dmg = parseFloat(document.getElementById('damage').value);
-    var name = document.getElementById('name').value || "Hit " + hit + " Damage " + dmg;
+    var hitBonus = parseFloat(document.getElementById('tohit').value);
+    var avgDamage = parseFloat(document.getElementById('damage').value);
+    var name = document.getElementById('name').value || "To Hit " + hitBonus + " Damage " + avgDamage;
 
-    if(isNaN(hit)) {
+    if(isNaN(hitBonus)) {
         alert('To Hit Cannot Be Left Blank!');
         return;
     }
 
-    if(isNaN(dmg)) {
+    if(isNaN(avgDamage)) {
         alert('Damage Cannot Be Left Blank!');
         return;
     }
 
     //add data to graph
-    pushDataset(name, calculateDataset(hit, dmg));
+    pushDataset(name, calculateDataset(hitBonus, avgDamage));
     updateGraph();
 
     //clear input boxes
@@ -70,16 +70,15 @@ function createDataset() {
 }
 
 
-function calculateDataset(hit, dmg) {
+function calculateDataset(hitBonus, avgDamage) {
     var data = [];
 
     for(ac = AC_MIN; ac <= AC_MAX; ac++) {
-        var hits = Math.min(Math.max(20 + hit - ac, 0), 18);
-        var damage = dmg * hits;
-        damage += 2 * dmg;
-        damage /= 20;
-        data[ac] = damage;
-        console.log(hits);
+        var hits = Math.min(Math.max(20 + hitBonus - ac, 0), 18);
+        var totalDamage = avgDamage * hits;
+        totalDamage += 2 * avgDamage;
+        totalDamage /= 20;
+        data[ac] = totalDamage;
     }
 
     return data;
