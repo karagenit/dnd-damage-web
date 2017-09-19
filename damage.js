@@ -22,7 +22,6 @@ var dataset = [];
 function calculate() {
     var hit = parseFloat(document.getElementById('tohit').value);
     var dmg = parseFloat(document.getElementById('damage').value);
-    var out = "";
     var data = [];
 
     for(ac = AC_MIN; ac <= AC_MAX; ac++) {
@@ -34,7 +33,6 @@ function calculate() {
         }
         damage += 2 * dmg;
         damage /= 20;
-        out = out + "AC " + ac + " Damage: " + damage + "\n";
         data[ac-AC_MIN] = {
             x: ac,
             y: damage
