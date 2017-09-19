@@ -8,14 +8,32 @@
   </head>
 
   <body>
-    <div class="input">
-      <input type="text" name="name" id="name" placeholder="Dataset Name"><br>
-      <input type="number" step="1" name="tohit" id="tohit" placeholder="To Hit Bonus"><br>
-      <input type="number" step="0.5" name="damage" id="damage" placeholder="Damage"><br>
-      <button class="button-success pure-button" onclick="createDataset()">Calculate</button>
-      <button class="button-error pure-button" onclick="clearDatasets()">Clear Datasets</button>
+
+    <div class="pure-form pure-form-aligned inputs">
+      <fieldset>
+
+        <div class="pure-control-group">
+          <input type="text" id="name" placeholder="Dataset Name">
+        </div>
+
+        <div class="pure-control-group">
+          <input type="number" step="1" id="tohit" placeholder="To Hit Bonus">
+        </div>
+
+        <div class="pure-control-group">
+          <input type="number" step="0.5" id="damage" placeholder="Average Damage">
+        </div>
+
+        <div class="pure-control-group">
+          <button class="button-success pure-button" onclick="createDataset()">Calculate</button>
+          <button class="button-error pure-button" onclick="clearDatasets()">Clear Datasets</button>
+        </div>
+
+      </fieldset>
     </div>
+
     <canvas id="chart" width="500" height="500"></canvas>
+
   </body>
 </html>
 

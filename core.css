@@ -4,15 +4,11 @@ body {
     max-width: 600px;
 }
 
-.input {
+.inputs {
     margin: auto;
     width: 100%;
     padding: 10px;
     text-align: center;
-}
-
-.input > * {
-    margin: 0.2em;
 }
 
 .button-success,
