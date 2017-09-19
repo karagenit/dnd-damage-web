@@ -1,3 +1,6 @@
+const AC_MIN = 5;
+const AC_MAX = 25;
+
 var ctx = document.getElementById("chart").getContext('2d');
 var scatterChart = new Chart(ctx, {
     type: 'scatter',
@@ -22,7 +25,7 @@ function calculate() {
     var out = "";
     var data = [];
 
-    for(ac = 8; ac < 26; ac++) {
+    for(ac = AC_MIN; ac <= AC_MAX; ac++) {
         var damage = 0;
         for(roll = 2; roll < 20; roll++) {
             if(roll + hit >= ac) {
@@ -32,7 +35,7 @@ function calculate() {
         damage += 2 * dmg;
         damage /= 20;
         out = out + "AC " + ac + " Damage: " + damage + "\n";
-        data[ac-8] = {
+        data[ac-AC_MIN] = {
             x: ac,
             y: damage
         };
