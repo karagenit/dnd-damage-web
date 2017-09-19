@@ -1,47 +1,6 @@
 const AC_MIN = 5;
 const AC_MAX = 25;
 
-var ctx = document.getElementById("chart").getContext('2d');
-var scatterChart = new Chart(ctx, {
-    type: 'scatter',
-    data: {
-        datasets: []
-    },
-    options: {
-        legend: {
-            position: 'bottom'
-        },
-        scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom',
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Monster AC'
-                },
-                ticks: {
-                    min: 4,
-                    max: 26,
-                    stepSize: 1
-                }
-            }],
-            yAxes: [{
-                type: 'linear',
-                position: 'left',
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Average Damage'
-                },
-                ticks: {
-                    min: 0,
-                    suggestedMax: 20,
-                    stepSize: 1
-                }
-            }]
-        }
-    }
-});
-
 var dataset = [];
 
 function createDataset() {
