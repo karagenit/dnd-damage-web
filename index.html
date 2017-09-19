@@ -8,12 +8,13 @@
   </head>
 
   <body>
-    <input type="text" name="name" id="name" placeholder="Dataset Name">
-    <input type="number" step="1" name="tohit" id="tohit" placeholder="To Hit Bonus">
-    <input type="number" step="0.5" name="damage" id="damage" placeholder="Damage">
-    <button type="button" onclick="createDataset()">Calculate</button>
-    <button type="button" onclick="clearDatasets()">Clear Datasets</button>
-    <br>
+    <div class="input">
+      <input type="text" name="name" id="name" placeholder="Dataset Name"><br>
+      <input type="number" step="1" name="tohit" id="tohit" placeholder="To Hit Bonus"><br>
+      <input type="number" step="0.5" name="damage" id="damage" placeholder="Damage"><br>
+      <button type="button" onclick="createDataset()">Calculate</button><br>
+      <button type="button" onclick="clearDatasets()">Clear Datasets</button>
+    </div>
     <canvas id="chart" width="500" height="500"></canvas>
   </body>
 </html>

@@ -1,5 +1,12 @@
 body {
     margin: 0 auto;
-    padding: 2em;
+    padding: 0 2em;
     max-width: 600px;
+}
+
+.input {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
 }
